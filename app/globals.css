@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #0A0B0D;
+  --surface: #16181C;
+  --surface-elevated: #1C1F24;
+  --border: #26282E;
+  --accent: #5EFCC2;
+  --accent-hover: #4DE8B0;
+  --severity-blocker: #FF6B6B;
+  --severity-warning: #FFB454;
+  --severity-info: #5EFCC2;
+  --text-primary: #FAFAFA;
+  --text-secondary: #94A3B8;
+  --text-muted: #64748B;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-severity-blocker: var(--severity-blocker);
+  --color-severity-warning: var(--severity-warning);
+  --color-severity-info: var(--severity-info);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --radius-card: 12px;
+  --radius-button: 8px;
+  --radius-input: 6px;
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--bg);
+}
