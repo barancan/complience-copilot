@@ -1,6 +1,5 @@
 import Anthropic from "@anthropic-ai/sdk";
-
-export const ANTHROPIC_MODEL = "claude-sonnet-4-5";
+import { ANTHROPIC_MODEL } from "@/lib/models";
 
 export async function call(
   apiKey: string,
