@@ -1,0 +1,35 @@
+{
+  "info": {
+    "name": "Compliance Co-pilot — Review PRD",
+    "description": "POST a PRD to the Compliance Co-pilot review endpoint. The user supplies their own provider API key; the server never persists it.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Compliance Co-pilot — Review PRD",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "X-Provider", "value": "anthropic" },
+          { "key": "X-API-Key", "value": "{{apiKey}}" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"prd\": \"Add a button to the homepage.\"\n}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/review",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v1", "review"]
+        },
+        "description": "Returns a structured, citation-backed review of the supplied PRD. X-Provider must be 'anthropic' or 'openai'. X-API-Key is the user's key for that provider — it is never logged or persisted by the server."
+      }
+    }
+  ],
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:3000" },
+    { "key": "apiKey", "value": "" }
+  ]
+}
