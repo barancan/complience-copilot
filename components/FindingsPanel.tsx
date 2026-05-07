@@ -71,17 +71,13 @@ export default function FindingsPanel({ state }: Props) {
 
   if (state.kind === "loading") {
     return (
-      <section className="flex flex-col gap-4 rounded-card border border-border bg-surface p-6">
-        <div className="h-6 w-32 animate-pulse rounded bg-surface-elevated" />
-        <div className="h-4 w-3/4 animate-pulse rounded bg-surface-elevated" />
-        <div className="mt-4 space-y-3">
-          {[0, 1, 2].map((i) => (
-            <div
-              key={i}
-              className="h-28 animate-pulse rounded-card border border-border bg-surface-elevated"
-            />
-          ))}
-        </div>
+      <section
+        className="flex min-h-[60vh] flex-col items-center justify-center gap-4 rounded-card border border-border bg-surface p-10"
+        aria-busy="true"
+        aria-live="polite"
+      >
+        <div className="spinner" role="status" aria-label="Reviewing PRD" />
+        <p className="text-sm text-text-secondary">Reviewing PRD...</p>
       </section>
     );
   }
