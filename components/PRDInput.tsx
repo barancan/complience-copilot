@@ -37,7 +37,8 @@ export default function PRDInput({
               key={prd.id}
               type="button"
               onClick={() => onChange(prd.body)}
-              className="rounded-button border border-border bg-surface-elevated px-3 py-1.5 text-xs text-text-secondary transition-colors hover:border-accent/40 hover:text-text-primary"
+              disabled={isRunning}
+              className="rounded-button border border-border bg-surface-elevated px-3 py-1.5 text-xs text-text-secondary transition-colors hover:border-accent/40 hover:text-text-primary disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:border-border disabled:hover:text-text-secondary"
             >
               Load: {SHORT_LABEL[prd.label] ?? prd.label}
             </button>
@@ -50,6 +51,7 @@ export default function PRDInput({
         onChange={(e) => onChange(e.target.value)}
         placeholder="Paste your PRD here..."
         spellCheck={false}
+        readOnly={isRunning}
         className="min-h-[400px] flex-1 resize-none rounded-input border border-border bg-bg p-4 text-sm leading-6 text-text-primary placeholder:text-text-muted focus:border-accent focus:outline-none"
       />
 
@@ -61,7 +63,7 @@ export default function PRDInput({
           canRun
             ? "bg-accent text-bg hover:bg-accent-hover"
             : "cursor-not-allowed bg-surface-elevated text-text-muted"
-        } ${isRunning ? "animate-pulse" : ""}`}
+        }`}
       >
         {isRunning ? "Reviewing..." : "Run review"}
       </button>
