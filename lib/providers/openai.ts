@@ -1,6 +1,5 @@
 import OpenAI from "openai";
-
-export const OPENAI_MODEL = "gpt-4o";
+import { OPENAI_MODEL } from "@/lib/models";
 
 export async function call(
   apiKey: string,
