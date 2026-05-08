@@ -1,5 +1,7 @@
 # Compliance Co-pilot
 
+**Live demo:** https://compliance-copilot-lemon.vercel.app/ — bring your own Anthropic or OpenAI key (stored client-side, 24h expiry).
+
 A regulatory pre-review service for product requirements documents (PRDs) at a regulated EU financial institution. Submit a PRD, and a `POST /api/v1/review` endpoint returns structured, citation-backed findings — exposure level, blockers/warnings, mitigations, and confidence flags — drawn from a hand-curated corpus of EU AI Act, GDPR, BaFin MaRisk, and DORA clauses.
 
 This repository is a portfolio piece for the Scalable Capital Product Manager (AI Platform) interview. The written submission discusses the production framing, eval strategy, and roadmap; this codebase is the working POC referenced there.
@@ -53,6 +55,18 @@ Error responses: `400` (validation), `401` (provider rejected the key), `429` (p
 
 ### curl example
 
+Against the deployed endpoint:
+
+```bash
+curl -X POST https://compliance-copilot-lemon.vercel.app/api/v1/review \
+  -H "Content-Type: application/json" \
+  -H "X-Provider: anthropic" \
+  -H "X-API-Key: $ANTHROPIC_API_KEY" \
+  -d '{"prd":"Add a button to the homepage."}'
+```
+
+Or against a local dev server:
+
 ```bash
 curl -X POST http://localhost:3000/api/v1/review \
   -H "Content-Type: application/json" \
@@ -61,7 +75,7 @@ curl -X POST http://localhost:3000/api/v1/review \
   -d '{"prd":"Add a button to the homepage."}'
 ```
 
-A Postman collection is included at [postman_collection.json](postman_collection.json).
+A Postman collection is included at [postman_collection.json](postman_collection.json). It defaults to the deployed `baseUrl`; override it to `http://localhost:3000` for local dev. Set the `apiKey` collection variable to your own Anthropic or OpenAI key — it is sent only to the endpoint and never persisted server-side.
 
 ## The platform thesis
 
