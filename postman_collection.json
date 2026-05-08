@@ -1,7 +1,7 @@
 {
   "info": {
     "name": "Compliance Co-pilot — Review PRD",
-    "description": "POST a PRD to the Compliance Co-pilot review endpoint. The user supplies their own provider API key; the server never persists it.",
+    "description": "POST a PRD to the Compliance Co-pilot review endpoint. The user supplies their own provider API key; the server never persists it. The baseUrl variable defaults to the deployed Vercel endpoint — override it to http://localhost:3000 to test against a local dev server.",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "item": [
@@ -29,7 +29,7 @@
     }
   ],
   "variable": [
-    { "key": "baseUrl", "value": "http://localhost:3000" },
+    { "key": "baseUrl", "value": "https://compliance-copilot-lemon.vercel.app" },
     { "key": "apiKey", "value": "" }
   ]
 }
